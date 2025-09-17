@@ -5,7 +5,7 @@ author: Vaidehi Chudgar
 date: "2025-09-17"
 ---
 
-```{r}
+```{r - loading tidyverse}
 library(tidyverse)
 
 ```
@@ -16,18 +16,32 @@ I first downloaded a package containing the penguins dataset by running code dir
 
 Next, I am loading the moderndive library and loading the early_january_weather dataset
 
-```{r}
+```{r - loading dataset}
 library(moderndive)
 data("early_january_weather")
 ```
 
 Next, I skim data for summary of dataset
 
-```{r}
+```{r - skim data}
 skimr::skim(early_january_weather)
 ```
 
 * There are 15 variables in this dataset. Names of important variables include temp, dep, humid, wind_dir, wind_Speed, wind_gust, precip, pressure, visib. 
 * There are `r nrow(early_january_weather)` rows and `r ncol(early_january_weather)` columns.
 * The mean temperature is `r mean(early_january_weather$temp)`.
+
+### Plot
+
+The following is code for the scatter plot.
+
+
+```{r - scatterplot}
+ggplot(early_january_weather, 
+       aes(x = time_hour, y = temp, color = humid)) + geom_point()
+ggsave("scatter_plot.pdf", height = 4, width = 6)
+```
+
+The scatter plot shows a 24 hour cycle for temperature as shown by the zig zag pattern of the graph. Generally, we see that as the days progress into mid-January, the average temperature  and humidity increases. 
+
 
