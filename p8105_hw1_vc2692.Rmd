@@ -1,29 +1,33 @@
 ---
 title: "p8105_hw1_vc2692"
-output: html_document
+output: github_document
+author: Vaidehi Chudgar
 date: "2025-09-17"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r}
+library(tidyverse)
+
 ```
 
-## R Markdown
+## Problem 1
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+I first downloaded a package containing the penguins dataset by running code directly in the console.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+Next, I am loading the moderndive library and loading the early_january_weather dataset
 
-```{r cars}
-summary(cars)
+```{r}
+library(moderndive)
+data("early_january_weather")
 ```
 
-## Including Plots
+Next, I skim data for summary of dataset
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r}
+skimr::skim(early_january_weather)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+* There are 15 variables in this dataset. Names of important variables include temp, dep, humid, wind_dir, wind_Speed, wind_gust, precip, pressure, visib. 
+* There are `r nrow(early_january_weather)` rows and `r ncol(early_january_weather)` columns.
+* The mean temperature is `r mean(early_january_weather$temp)`.
+
