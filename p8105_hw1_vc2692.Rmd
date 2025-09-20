@@ -106,7 +106,7 @@ mutate(across(c(logical_vector, character_vector, factor_vector), as.numeric))
 
 ```
 
-When I try to apply the as.numeric function to the logical, character, and factor variable, I am not able to convert the character_vector. This explains why NA is returned when I try to take the mean of character_vector. 
+When I try to apply the as.numeric function to the logical, character, and factor variable, I am not able to convert the character_vector. This explains why NA is returned when I try to take the mean of character_vector, as there are no numbers underlying this vector that R can use to take the mean of this vector. 
 
 I am able to convert the factor_vector to a numeric variable, but since I did not do this before taking the mean, R was not able to provide a mean for the factor_vector variable in the previous step.
 
